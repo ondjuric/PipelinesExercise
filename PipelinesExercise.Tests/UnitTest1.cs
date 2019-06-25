@@ -1,8 +1,12 @@
+using ApprovalTests.Reporters;
+using ApprovalTests.Reporters.Linux;
 using NUnit.Framework;
 using PipelinesExercise;
+using Refactoring.Pipelines.Approvals;
 
 namespace Tests
 {
+    [UseReporter(typeof(DiffMergeReporter))]
     public class Tests
     {
         [SetUp]
@@ -13,7 +17,9 @@ namespace Tests
         [Test]
         public void Test1()
         {
-            new DoEverything().MakeAllTheViewModels("filename", "username", "password");
+            var pipes = new DoEverything().SetUpPipeline();
+
+            PipelineApprovals.Verify(pipes.Item4);
         }
     }
 }

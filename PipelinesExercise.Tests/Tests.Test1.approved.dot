@@ -1,0 +1,60 @@
+﻿digraph G { node [style=filled, shape=rec]
+
+# Nodes
+"String fileName" -> "CharacterFile.From()" -> "CharacterFile"
+"CharacterFile" -> "ConfigFile.Matching()" -> "ConfigFile"
+"ConfigFile" -> "DoEverything.ParseCards()" -> "List`1"
+{"IEnumerable`1 1", "List`1"} -> "ConcatWith" -> "List<CardData>"
+{"Tuple{CharacterFile, ConfigFile}", "List<CardData>"} -> "ApplyTo" -> "List<Tuple{Tuple`2, CardData}>"
+"ApplyTo" -> "DoEverything.ResolveAllFormulas()" -> "IEnumerable`1"
+"IEnumerable`1" -> "DoEverything.CreateCharacterData()" -> {"CharacterData", "Collector"}
+{"CharacterFile", "ConfigFile"} -> "Join" -> "Tuple{CharacterFile, ConfigFile}"
+"CharacterFile" -> "DoEverything.ParseCards() 1" -> "List`1 1"
+{"Tuple{CardService, CompendiumService}", "List`1 1"} -> "ApplyTo 1" -> "List<Tuple{Tuple`2, CardData}> 1"
+"ApplyTo 1" -> "DoEverything.ProcessAllPartialCards()" -> "IEnumerable`1 1"
+{"String username", "String password"} -> "Join 1" -> "Tuple{String, String}"
+"Join 1" -> "DoEverything.CompendiumService()" -> "CompendiumService"
+{"CardService", "CompendiumService"} -> "Join 2" -> "Tuple{CardService, CompendiumService}"
+"Join 1" -> "DoEverything.CardService()" -> "CardService"
+
+
+# Formatting
+"String fileName" [color=green]
+"CharacterFile" [color="#9fbff4"]
+"CharacterFile.From()" [shape=invhouse]
+"ConfigFile" [color="#9fbff4"]
+"ConfigFile.Matching()" [shape=invhouse]
+"List`1" [color="#9fbff4"]
+"DoEverything.ParseCards()" [shape=invhouse]
+"List<CardData>" [color="#9fbff4"]
+"ConcatWith" [color=pink]
+"List<Tuple{Tuple`2, CardData}>" [color="#9fbff4"]
+"ApplyTo" [color=pink]
+"IEnumerable`1" [color="#9fbff4"]
+"DoEverything.ResolveAllFormulas()" [shape=invhouse]
+"CharacterData" [color="#9fbff4"]
+"DoEverything.CreateCharacterData()" [shape=invhouse]
+"Collector" [color = "#c361f4"]
+"Tuple{CharacterFile, ConfigFile}" [color="#9fbff4"]
+"Join" [color=pink]
+"List`1 1" [label="List`1", color="#9fbff4"]
+"DoEverything.ParseCards() 1" [label="DoEverything.ParseCards()", shape=invhouse]
+"List<Tuple{Tuple`2, CardData}> 1" [label="List<Tuple{Tuple`2, CardData}>", color="#9fbff4"]
+"ApplyTo 1" [label="ApplyTo", color=pink]
+"IEnumerable`1 1" [label="IEnumerable`1", color="#9fbff4"]
+"DoEverything.ProcessAllPartialCards()" [shape=invhouse]
+"String username" [color=green]
+"Tuple{String, String}" [color="#9fbff4"]
+"Join 1" [label="Join", color=pink]
+"CompendiumService" [color="#9fbff4"]
+"DoEverything.CompendiumService()" [shape=invhouse]
+"Tuple{CardService, CompendiumService}" [color="#9fbff4"]
+"Join 2" [label="Join", color=pink]
+"CardService" [color="#9fbff4"]
+"DoEverything.CardService()" [shape=invhouse]
+"String password" [color=green]
+
+{ rank=same; "DoEverything.CreateCharacterData()", "Collector"}
+
+
+}
