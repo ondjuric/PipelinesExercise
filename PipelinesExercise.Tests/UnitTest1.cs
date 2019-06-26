@@ -13,7 +13,7 @@ namespace Tests
         [Test]
         public void Test1()
         {
-            new DoEverything().MakeAllTheViewModels("filename", "username", "password");
+            new DoEverythingTheHardWay().MakeAllTheViewModels("filename", "username", "password");
         }
     }
 }

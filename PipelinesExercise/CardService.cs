@@ -4,7 +4,11 @@ namespace PipelinesExercise
 {
 	public class CardService
 	{
-		public static CardService Authenticate( string username, string password)
+		public static CardService Authenticate(Tuple< string, string> credentials)
+		{
+			throw new NotImplementedException();
+		}
+public static CardService Authenticate( string username, string password)
 		{
 			throw new NotImplementedException();
 		}

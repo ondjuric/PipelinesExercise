@@ -19,5 +19,10 @@ namespace PipelinesExercise
 		{
 			return c.ParseCards();
 		}
-	}
+
+        public static List<CardData> ParseCards(ConfigFile configFile)
+        {
+            return configFile.ParseCards();
+        }
+    }
 }

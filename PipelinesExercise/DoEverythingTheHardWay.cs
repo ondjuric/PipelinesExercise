@@ -2,7 +2,7 @@
 
 namespace PipelinesExercise
 {
-    public class DoEverything
+    public class DoEverythingTheHardWay
     {
         public CharacterData MakeAllTheViewModels( string fileName,  string username,
              string password)

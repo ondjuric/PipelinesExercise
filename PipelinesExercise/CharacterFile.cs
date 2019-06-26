@@ -24,5 +24,10 @@ namespace PipelinesExercise
 		{
 			return c.ParseCards();
 		}
-	}
+
+        public static List<CardData> PartialCards(CharacterFile characterFile)
+        {
+            return characterFile.ParseCards();
+        }
+    }
 }
